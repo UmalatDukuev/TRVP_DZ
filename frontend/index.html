@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="index.css">
+  <script type="module" src="index.js"></script>
+  <script>
+        function check(elem) {
+            if (elem.selectedIndex == 1) {
+                document.getElementById("modal-select-load-car-type").style.display = 'block';
+                document.getElementById("modal-label-load-car-type").style.display = 'block';
+                document.getElementById("modal-select-load-car-type-new").style.display = 'block';
+                document.getElementById("modal-label-load-car-type-new").style.display = 'block';
+            } else {
+                document.getElementById("modal-select-load-car-type").style.display = 'none';
+                document.getElementById("modal-label-load-car-type").style.display = 'none';
+                document.getElementById("modal-select-load-car-type-new").style.display = 'none';
+                document.getElementById("modal-label-load-car-type-new").style.display = 'none';
+            }
+        }
+    </script>
+  <title>Ship trip schedule</title>
+</head>
+<body>
+  <header class="app-header" id="app-header">
+    <h1 class="app-header__app-name">Ship trip schedule</h1>
+    <div class="app-header__user-and-controls">
+      <div class="user-info">
+        <div class="user-info__avatar"></div>
+        <span class="user-info__username">
+          <b>Administrator</b>
+        </span>
+      </div>
+      <label class="toggle-switch" id="theme-switch">
+        <!--<input type="checkbox" class="toggle-switch__checkbox" />
+        <div class="toggle-switch__slider"></div>-->
+      </label>
+    </div>
+  </header>
+  <main class="app-main" id="app-main">
+    <ul class="trips-list">
+      <li class="trips-list__item trip-adder">
+        <button type="button" class="trip-adder__btn">
+          &#10010; Add trip
+        </button>
+        <!--<input
+          type="text"
+          placeholder="Новый список"
+          class="trip-adder__input"
+        />-->
+      </li>
+      <li class="trips-list__item trip-adder"> 
+        <button type="button"  id = "dest-adder" class="trip-adder__btn">
+          &#10010; Add destination
+        </button>
+        <input
+          type="text"
+          placeholder="New destination"
+          id = "dest-adder-input"
+          class="trip-adder__input"
+        />
+      </li>
+    </ul>
+  </main>
+  <dialog class="app-modal" id="modal-create-trip">
+    <form class="app-modal__form">
+      <label for="modal-create-trip-select-dest"  id="label-for-select-dest" class="app-modal__question">
+        Select destination for trip:
+      </label>
+      <!--<input type="text" name="" id="modal-add-load-input-name" class="app-modal__input">-->
+      <label for="modal-create-trip-select-ferry" id="label-for-select-ferry" class="app-modal__question">
+        Select ship:
+      </label>
+      <!--<select id="modal-select-load-type" class="app-modal__input" onChange="check(this);">
+        <option></option>
+        <option>авто</option>
+        <option>груз</option>
+      </select>-->
+      <div class="app-modal__controls">
+        <button type="button" class="app-modal__btn modal-ok-btn">OK</button>
+        <button type="button" class="app-modal__btn modal-cancel-btn">Cancel</button>
+      </div>
+    </form>
+  </dialog>
+
+
+  <dialog class="app-modal" id="modal-edit-trip">
+    <form class="app-modal__form">
+      <label for="modal-edit-trip-select-dest"  id="label-for-select-dest_ed" class="app-modal__question">
+        Select destination for trip:
+      </label>
+      <!--<input type="text" name="" id="modal-add-load-input-name" class="app-modal__input">-->
+      <label for="modal-edit-trip-select-ferry" id="label-for-select-ferry_ed" class="app-modal__question">
+        Select ship:
+      </label>
+      <!--<select id="modal-select-load-type" class="app-modal__input" onChange="check(this);">
+        <option></option>
+        <option>авто</option>
+        <option>груз</option>
+      </select>-->
+      <div class="app-modal__controls">
+        <button type="button" class="app-modal__btn modal-ok-btn">OK</button>
+        <button type="button" class="app-modal__btn modal-cancel-btn">Cancel</button>
+      </div>
+    </form>
+  </dialog>
+
+
+  <dialog class="app-modal" id="modal-add-load">
+    <form class="app-modal__form">
+      <label for="modal-add-load-input-name" class="app-modal__question">
+        Enter name of new cargo:
+      </label>
+      <input type="text" name="" id="modal-add-load-input-name" class="app-modal__input">
+      <label for="modal-select-load-type" class="app-modal__question">
+        Select type of cargo:
+      </label>
+      <select id="modal-select-load-type" class="app-modal__input" onChange="check(this);">
+        <option></option>
+        <option>car</option>
+        <option>cargo</option>
+      </select>
+      <label for="modal-select-load-car-type" id="modal-label-load-car-type" class="app-modal__question hidden">
+        Select type of car:
+      </label>
+      <select id="modal-select-load-car-type" class="app-modal__input hidden">
+        <option></option>
+        <option>passenger car</option>
+        <option>cargo car</option>
+        <option>tractor</option>
+      </select>
+      <div class="app-modal__controls">
+        <button type="button" class="app-modal__btn modal-ok-btn">OK</button>
+        <button type="button" class="app-modal__btn modal-cancel-btn">Cancel</button>
+      </div>
+    </form>
+  </dialog>
+  <dialog class="app-modal" id="modal-edit-load">
+    <form class="app-modal__form">
+      <label for="modal-add-load-input-name-new" class="app-modal__question">
+        Enter name of new cargo:
+      </label>
+      <input type="text" name="" id="modal-add-load-input-name-new" class="app-modal__input">
+      <label for="modal-select-load-type-new" class="app-modal__question">
+        Select new type of cargo:
+      </label>
+      <select id="modal-select-load-type-new" class="app-modal__input" onChange="check(this);">
+        <option></option>
+        <option>car</option>
+        <option>cargo</option>
+      </select>
+      <label for="modal-select-load-car-type-new" id="modal-label-load-car-type-new" class="app-modal__question hidden">
+        Select type of car:
+      </label>
+      <select id="modal-select-load-car-type-new" class="app-modal__input hidden">
+        <option></option>
+        <option>passenger car</option>
+        <option>cargo car</option>
+        <option>tractor</option>
+      </select>
+      <div class="app-modal__controls">
+        <button type="button" class="app-modal__btn modal-ok-btn">OK</button>
+        <button type="button" class="app-modal__btn modal-cancel-btn">Cancel</button>
+      </div>
+    </form>
+  </dialog>
+  <dialog class="app-modal" id="modal-delete-load">
+    <form class="app-modal__form">
+      <label class="app-modal__question">
+      </label>
+      <!-- <input type="text" name="" id="modal-delete-load-input" class="app-modal__input"> -->
+      <div class="app-modal__controls" >
+        <button type="button" class="app-modal__btn modal-ok-btn">OK</button>
+        <button type="button" class="app-modal__btn modal-cancel-btn">Cancel</button>
+      </div>
+    </form>
+  </dialog>
+  <dialog class="app-modal" id="modal-delete-trip">
+    <form class="app-modal__form">
+      <label class="app-modal__question">
+      </label>
+      <div class="app-modal__controls" >
+        <button type="button" class="app-modal__btn modal-ok-btn">OK</button>
+        <button type="button" class="app-modal__btn modal-cancel-btn">Cancel</button>
+      </div>
+    </form>
+  </dialog>
+  <dialog class="app-notifications" id="app-notifications">
+  </dialog>
+</body>
+</html>
