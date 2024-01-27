@@ -64,11 +64,11 @@ export default class Load {
     //const icon_par = document.createElement('p');
 
     const icon = document.createElement('svg');
-    if (this.#loadType === 'cargo'){icon.classList.add('load-icon', 'icon');}
+    if (this.#loadType === 'груз'){icon.classList.add('load-icon', 'icon');}
     else{
-      if (this.#loadCarType === 'passenger car'){icon.classList.add('car-icon', 'icon');}
-      if (this.#loadCarType === 'cargo car'){icon.classList.add('van-icon', 'icon');}
-      if (this.#loadCarType === 'tractor'){icon.classList.add('bigtruck-icon', 'icon');}
+      if (this.#loadCarType === 'легковой'){icon.classList.add('car-icon', 'icon');}
+      if (this.#loadCarType === 'грузовой'){icon.classList.add('van-icon', 'icon');}
+      if (this.#loadCarType === 'тягач'){icon.classList.add('bigtruck-icon', 'icon');}
     }
     liElement.appendChild(icon);
 
