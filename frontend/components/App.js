@@ -121,11 +121,11 @@ export default class App {
       let newLoad = CurrentLoads[1];
       let newCars = CurrentLoads[0];
 
-      if (load.loadType === 'груз') {newLoad+=1;}
-      if (load.loadType === 'авто'){
-        if (load.loadCarType === 'легковой') {newCars +=1;}
-        if (load.loadCarType === 'грузовой') {newCars +=2;}
-        if (load.loadCarType === 'тягач') {newCars +=3;}
+      if (load.loadType === 'cargo') {newLoad+=1;}
+      if (load.loadType === 'car'){
+        if (load.loadCarType === 'passenger car') {newCars +=1;}
+        if (load.loadCarType === 'cargo car') {newCars +=2;}
+        if (load.loadCarType === 'tractor') {newCars +=3;}
       }
       if ((tripLimits['car_place'] < newCars || tripLimits['load_place'] < newLoad) && (srcTripID !== destTripID)){
         this.addNotification({ text: 'There`s not enough space on ship', type: 'error'});
@@ -517,8 +517,8 @@ export default class App {
       const modalInputType = addLoadModal.querySelector('#modal-select-load-type');
       const modalInputCarType = addLoadModal.querySelector('#modal-select-load-car-type');
 
-      let car_type = "груз";
-      if (modalInputType.options[modalInputType.selectedIndex].text == 'авто'){
+      let car_type = "cargo";
+      if (modalInputType.options[modalInputType.selectedIndex].text == 'car'){
         car_type = modalInputCarType.options[modalInputCarType.selectedIndex].text;
       }
 
@@ -552,8 +552,8 @@ export default class App {
       const modalInputType = editLoadModal.querySelector('#modal-select-load-type-new');
       const modalInputCarType = editLoadModal.querySelector('#modal-select-load-car-type-new');
       
-      let car_type = "груз";
-      if (modalInputType.options[modalInputType.selectedIndex].text == 'авто'){
+      let car_type = "cargo";
+      if (modalInputType.options[modalInputType.selectedIndex].text == 'car'){
         car_type = modalInputCarType.options[modalInputCarType.selectedIndex].text;
       }
 

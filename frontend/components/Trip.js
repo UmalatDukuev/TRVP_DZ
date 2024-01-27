@@ -85,11 +85,11 @@ export default class Trip {
     //console.log(String(this.#loads[0]));
     for (let load of this.#loads) {
       console.log(load);
-      if (load.loadType === 'груз') {load_place += 1;}
-      if (load.loadType === 'авто'){
-        if (load.loadCarType === 'легковой') {car_place +=1;}
-        if (load.loadCarType === 'грузовой') {car_place +=2;}
-        if (load.loadCarType === 'тягач') {car_place +=3;}
+      if (load.loadType === 'cargo') {load_place += 1;}
+      if (load.loadType === 'car'){
+        if (load.loadCarType === 'passenger car') {car_place +=1;}
+        if (load.loadCarType === 'cargo car') {car_place +=2;}
+        if (load.loadCarType === 'tractor') {car_place +=3;}
       }
     };
     console.log('car_place ', car_place, ' load_place ', load_place)
@@ -153,11 +153,11 @@ export default class Trip {
     console.log(CurrentLoads);
     let newLoad = CurrentLoads[1];
     let newCars = CurrentLoads[0];
-    if (type === 'груз') {newLoad+=1;}
-    if (type === 'авто'){
-      if (car_type === 'легковой') {newCars +=1;}
-      if (car_type === 'грузовой') {newCars +=2;}
-      if (car_type === 'тягач') {newCars +=3;}
+    if (type === 'cargo') {newLoad+=1;}
+    if (type === 'car'){
+      if (car_type === 'passenger car') {newCars +=1;}
+      if (car_type === 'cargo car') {newCars +=2;}
+      if (car_type === 'tractor') {newCars +=3;}
     }
     console.log(newCars, newLoad);
     if (tripLimits['car_place'] < newCars || tripLimits['load_place'] < newLoad){
